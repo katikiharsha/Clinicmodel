@@ -1,11 +1,4 @@
 class CreatePatients < ActiveRecord::Migration
-  def change
-    create_table :patients do |t|
-      t.string :name
-      t.string :age
-      t.datetime :dob
-
-      t.timestamps null: false
-    end
-  end
+  has_many :appointments
+  has_many :doctors , through: :appointments 
 end
